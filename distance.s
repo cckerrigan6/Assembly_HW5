@@ -68,6 +68,8 @@ power:
 
 	.globl	distance
 distance:
+	pushq %rbx
+	pushq %r10
 	xorq %rax, %rax
 	movq %rdx, %r8
 	subq %rdi, %r8
@@ -82,6 +84,8 @@ distance:
 	movq %rbx, %rsi
 	call power
 	addq %r10, %rax
+	popq %r10
+	popq %rbx
 	retq
 
 ############################################################
