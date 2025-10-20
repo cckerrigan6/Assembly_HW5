@@ -45,11 +45,11 @@ power:
 	je power_done
 	testq %rdi, %rdi
 	je base_zero
-	movq %rdi,%rcx
+	pushq %rdi
 	subq $1, %rsi
 	call power
-	movq %rax, %rdi
-	movq %rcx, %rsi
+	popq %rdi
+	movq %rax, %rsi
 	call product
 	retq
 	base_zero:
